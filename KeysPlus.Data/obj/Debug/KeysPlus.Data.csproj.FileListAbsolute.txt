@@ -1,0 +1,10 @@
+C:\Keys Core\Verison 1.0\KeysPlus.Data\bin\Debug\KeysPlus.Data.dll.config
+C:\Keys Core\Verison 1.0\KeysPlus.Data\bin\Debug\KeysPlus.Data.dll
+C:\Keys Core\Verison 1.0\KeysPlus.Data\bin\Debug\KeysPlus.Data.pdb
+C:\Keys Core\Verison 1.0\KeysPlus.Data\bin\Debug\EntityFramework.dll
+C:\Keys Core\Verison 1.0\KeysPlus.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Keys Core\Verison 1.0\KeysPlus.Data\bin\Debug\EntityFramework.xml
+C:\Keys Core\Verison 1.0\KeysPlus.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Keys Core\Verison 1.0\KeysPlus.Data\obj\Debug\KeysPlus.Data.csprojResolveAssemblyReference.cache
+C:\Keys Core\Verison 1.0\KeysPlus.Data\obj\Debug\KeysPlus.Data.dll
+C:\Keys Core\Verison 1.0\KeysPlus.Data\obj\Debug\KeysPlus.Data.pdb

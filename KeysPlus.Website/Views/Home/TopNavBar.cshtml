@@ -1,0 +1,160 @@
+﻿@model KeysPlus.Service.Models.SideBarViewModel
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="pull-left" style="line-height : 45px">
+            <img src="~/images/logo.png"/>
+        </div>              
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="@Url.Action("Dashboard", "Home", new {Area = ""})" class="item-link @(TempData["CurrentLink"] as String =="Dashboard" ? "selected" : "")">
+                    Dashboard
+                </a>
+            </li>
+            @if (Model.IsPropertyOwner || Model.IsPropManager)
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Owners <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="@Url.Action("Index", "Home", new { Area = "PropertyOwners"})" class="item-link @(TempData["CurrentLink"] as String =="Properties" ? "selected" : "")">
+                                Properties
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("RentalProperties", "Property", new { Area = "PropertyOwners"})" class="item-link @(TempData["CurrentLink"] as String =="RentalApplications" ? "selected" : "")">
+                                Rental Applications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("TenantRequests", "Property", new { Area = "PropertyOwners" })" class="item-link @(TempData["CurrentLink"] as String =="TenantRequests" ? "selected" : "")">
+                                Tenant Request
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("MyMarketJobs", "Manage", new {Area = "PropertyOwners"})" class="item-link @(TempData["CurrentLink"] as String =="MarketJobsOwner" ? "selected" : "")">
+                                Job Quotes
+                            </a>
+                        </li>
+                        <li>
+                            @*<a href="@Url.Action("Index", "Home", new {Area = "Jobs" , userAction = 1 })" class="item-link">
+                                Accepted Jobs
+                            </a>*@
+                            <a href="@Url.Action("AcceptedJobs", "Manage", new {Area = "PropertyOwners"})" class="item-link @(TempData["AcceptedJobs"] as String =="MarketJobsOwner" ? "selected" : "")">
+                                Accepted Jobs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("MyRequests", "Property", new {Area = "PropertyOwners" })" class="item-link">
+                                My Requests
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Inspections", "Manage", new {Area = "PropertyOwners" })" class="item-link">
+                                Inspections
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+            @if (Model.IsTenant)
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tenants <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="@Url.Action("MyRentals", "Home", new { Area = "Tenants" })" class="item-link @(TempData["CurrentLink"] as String =="MyRentals" ? "selected" : "")">
+                                My Rentals
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("MyRentalApplications", "Home", new { Area = "Tenants" })" class="item-link waves-effect waves-block @(TempData["CurrentLink"] as String =="MyApplications" ? "selected" : "")">
+                                My Applications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("MyRequests", "Home", new { Area = "Tenants" })" class="item-link @(TempData["CurrentLink"] as String =="MyRequests" ? "selected" : "")">
+                                My Requests
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("LandlordRequests", "Home", new { Area = "Tenants" })" class="item-link @(TempData["CurrentLink"] as String =="LandLordRequest" ? "selected" : "")">
+                                Landlord's Requests
+                            </a>
+                        </li>
+                        <li>
+                            @*<a href="@Url.Action("Inspections", "Home", new { Area = "Tenants" })" class="item-link @(TempData["CurrentLink"] as String =="Inspections" ? "selected" : "")">
+                                Inspections
+                            </a>*@
+                            <a href="@Url.Action("Inspections", "Rent", new { Area = "Tenants" })" class="item-link @(TempData["CurrentLink"] as String =="Inspections" ? "selected" : "")">
+                                Inspections
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+            @if (Model.IsServiceSupplier)
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service Suppliers <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="@Url.Action("MyQuotes", "Manage", new { Area = "Companies"})" class="item-link @(TempData["CurrentLink"] as String =="MyQuotes" ? "selected" : "")">
+                                My Quotes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("MyJobs", "Home", new {Area = "Companies"})" class="item-link @(TempData["CurrentLink"] as String =="MyJobs" ? "selected" : "")">
+                                My Jobs
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+            <li>
+                <a href="@Url.Action("Index", "Home", new { Area = "Rental" })" class="@(TempData["CurrentLink"] as String =="RetalListing" ? "selected" : "")">Properties For Rent</a>
+            </li>
+            <li>
+                <a href="@Url.Action("GetMarketJobs", "Home", new { Area = "Jobs"})" class="item-link @(TempData["CurrentLink"] as String =="MarketJobs" ? "selected" : "")">
+                    Market Place
+                </a>
+            </li>
+            @*<li>
+                <a href="@Url.Action("Index", "Watchlist", new {area = "Personal", itemType = 1 })" class="item-link @(TempData["CurrentLink"] as String =="MarketJobs" ? "selected" : "")">
+                    Watchlist
+                </a>
+            </li>*@
+           @if (Model.IsAdmin)
+           {
+            <li>
+                <a href="@Url.Action("Index", "Home", new {Area = "Admin"})" class="item-link  @(TempData["CurrentLink"] as String =="Admin" ? "selected" : "") ">
+                    Admin
+                </a>
+            </li>
+
+           }
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:20px"><i class="zmdi zmdi-pin-account"></i></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a title="Go to Profile" href="@Url.Action("AccountOverview", "Account", new {area = "" })"><i class="zmdi zmdi-account text-primary"></i> Profile</a>
+                       
+                    </li>
+
+                    <li>
+                        <a title="Watchlist" href="@Url.Action("Watchlist", "Personal", new {area = "" })"><i class="zmdi zmdi-eye text-primary"></i> Watchlist</a>
+
+                    </li>
+                    
+                    <li>
+                        <a title="Change password" href="@Url.Action("ChangePassword", "Account", new { area = "" , htmlAttributes= new { id = "ChangePasswordLink" }})"><i class="zmdi zmdi-lock-open text-primary"></i> Change Password</a>
+                    </li>
+                    
+                    <li>
+                        <a title="Log Out" href="@Url.Action("LogOff","Account",new {Area = String.Empty})"><i class="fa fa-sign-out text-primary"></i> Sign Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
